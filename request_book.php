@@ -1,10 +1,9 @@
 <?php
-// Connect to your database
-$servername = "localhost"; // Change this if your MySQL server is on a different host
-$username = "root"; // Change this to your MySQL username
-$password = ""; // Change this to your MySQL password
-$dbname = "lms"; // Change this to your database name
 
+$servername = "localhost"; 
+$username = "root"; 
+$password = ""; 
+$dbname = "lms"; 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
@@ -12,13 +11,13 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if form is submitted
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Check if the 'search' field is not empty
+    
     if (!empty($_POST["search"])) {
         $books_names = $_POST["search"];
 
-        // Insert the book name into the database
+        
         $sql = "INSERT INTO request (books_names) VALUES ('$books_names')";
 
         if ($conn->query($sql) === TRUE) {
@@ -31,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-// Close the database connection
+
 $conn->close();
 ?>
 
