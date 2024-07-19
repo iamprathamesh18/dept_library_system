@@ -1,24 +1,24 @@
 <?php
-// Database configuration
-$servername = "localhost"; // Change this if your database is on a different server
-$username = "root"; // Change this to your database username
-$password = ""; // Change this to your database password
-$dbname = "lms"; // Change this to your database name
 
-// Create connection
+$servername = "localhost"; 
+$username = "root"; 
+$password = ""; 
+$dbname = "lms"; 
+
+
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
+
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if the form is submitted
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get the suggestion from the form
+    
     $suggestion = $_POST['suggestion'];
 
-    // Prepare and execute SQL query to insert suggestion into the database
+    
     $sql = "INSERT INTO suggest (suggestion) VALUES (?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $suggestion);
@@ -29,11 +29,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>alert('Error: " . $conn->error . "');</script>";
     }
 
-    // Close statement
+    
     $stmt->close();
 }
 
-// Close connection
+
 $conn->close();
 ?>
 
@@ -47,7 +47,7 @@ $conn->close();
     <link rel="stylesheet" type="text/css" href="bootstrap-4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="donation.css">
     <style>
-        /* Additional CSS for hover effects and transitions */
+        
         .suggestion-form {
             background-color: #f9f9f9;
             padding: 20px;
@@ -106,12 +106,12 @@ $conn->close();
 
 <div class="header">
     <div class="logo"><img src="logo.png" alt="Logo"></div>
-    <h1>ECE Department Library</h1> <!-- Heading without typing effect -->
+    <h1>ECE Department Library</h1> 
 </div>
 
 <div class="nav-bar">
     
-        <!-- Your navigation links -->
+       
         <a href="search.php" class="btn btn-light">Search Book</a>
         <a href="request_book.php" class="btn btn-light">Request a Book</a>
         <a href="donation.html" class="btn btn-light">Book Donation</a>
@@ -132,7 +132,7 @@ $conn->close();
     <h2 style="text-align: center;">Welcome!</h2>
     
     
-    <!-- Search Container -->
+    
     <h2 style="text-align: center;">Drop your suggestion here!</h2>
     <div class="suggestion-form">
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
