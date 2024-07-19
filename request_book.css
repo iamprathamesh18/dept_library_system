@@ -76,16 +76,16 @@ body {
     display: flex;
     flex-direction: column;
     max-width: 400px;
-    margin: 2rem auto 0; /* Increased top margin to move the form down */
-    padding: 20px; /* Add padding around the form content */
-    border: 3px solid; /* Default border style */
+    margin: 2rem auto 0; 
+    padding: 20px; 
+    border: 3px solid; 
     border-image: linear-gradient(45deg, #007bff, #28a745, #dc3545, #ffc107) 1; /* Colorful border */
-    border-radius: 10px; /* Rounded corners for the border */
-    transition: all 0.3s ease; /* Smooth transition for any changes */
+    border-radius: 10px; 
+    transition: all 0.3s ease; 
 }
 
 .book-request-form:hover {
-    transform: translateY(-5px); /* Optional: slight lift effect on hover */
+    transform: translateY(-5px); 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: shadow effect for depth */
 }
 
